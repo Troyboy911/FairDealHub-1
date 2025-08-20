@@ -1,0 +1,466 @@
+FairDealHub 2.0 — Master Build Prompt
+
+Paste this prompt into your favorite code-gen AI or share with your dev team. It defines UX, data, automation, admin features, and a prioritized affiliate network list for a modern, vibrant affiliate coupon/deals site.
+
+You are a senior full‑stack product team. Build FairDealHub 2.0 — a new‑age, modern, futuristic affiliate discounts platform with a vibrant aesthetic and a powerful admin. Ship an MVP that can go live quickly and scale.
+
+Brand & Visual Direction
+
+Aesthetic: dark base + neon accents; glassmorphism cards; subtle gradients; micro‑interactions; accessible contrast.
+
+Palette (suggested): background #0B0F1A; primary neon #38F8B3; secondary neon #7C4DFF; accent #FF5AF1; success #17D47E; warning #FFC043.
+
+Typography: geometric sans for headings (e.g., Poppins/Space Grotesk), humanist sans for body (e.g., Inter).
+
+Motion: 150–200ms transitions; springy hover on CTAs; reduced‑motion support.
+
+Tech Stack (generate code accordingly)
+
+Frontend: Next.js 14 App Router (TypeScript), Tailwind CSS, shadcn/ui, lucide-react, React Query (TanStack Query), Recharts for charts.
+
+Backend: Next.js API routes (or server actions) for MVP.
+
+Database (env flag DB_PROVIDER): neon (Postgres) or mongodb (Atlas). Use Prisma for Postgres; use Mongoose for MongoDB.
+
+Auth: NextAuth with email magic link + OAuth (Google). Role-based (admin, editor, viewer).
+
+Job scheduling: Netlify Scheduled Functions (or cron alternative) every 4 hours for the product generator.
+
+Email: Resend (fallback SendGrid). Templates via React Email.
+
+Storage/CDN: Cloudinary for product images and OG images.
+
+Analytics/tracking: First‑party events + ingest affiliate network conversions.
+
+Logging/monitoring: Structured logs (pino), error tracking (Sentry). Feature flags via simple DB table/collection.
+
+Affiliate Network Target List (Apply in this Order)
+
+Start broad for coverage, then add vertical specialists. Availability changes over time; confirm current terms when applying.
+
+Tier 1 — Core Global Networks (breadth + strong tooling)
+
+CJ (formerly Commission Junction) — huge merchant coverage; deep‑linking; voucher feeds; strong reporting.
+
+Impact.com — many large brands; flexible tracking; promo code contracts; good APIs.
+
+Awin + ShareASale — Awin’s global reach + ShareASale’s US SMB/mid‑market depth; voucher feeds.
+
+Rakuten Advertising (LinkShare) — enterprise retailers; solid reporting; global reach.
+
+Partnerize (incl. Pepperjam/Ascend) — fashion/retail concentration; dynamic commissioning.
+
+FlexOffers — quick breadth across mid/long tail; fast approvals for many programs.
+
+Tier 2 — Vertical/Regional Specialists
+
+AvantLink — outdoor/active gear, premium DTC; great for niche authenticity.
+
+Admitad — international catalog incl. marketplaces; coupons/vouchers; some EU/Asia depth.
+
+Tradedoubler — strong in EU; retail, travel, tech.
+
+Webgains — EU fashion/beauty/retail.
+
+PartnerStack — SaaS affiliate hub (software tools, B2B products).
+
+Refersion / Affiliatly / Post Affiliate Pro — many mid‑size DTC stores run programs here (apply program‑by‑program).
+
+Tier 3 — Link Monetization / Aggregators (for breadth & fallback)
+
+Skimlinks — auto‑monetizes links across many merchants (use as catch‑all; respect disclosure).
+
+Sovrn //Commerce (VigLink) — similar to Skimlinks; helpful for quick coverage and testing.
+
+FMTC (deal & coupon feed aggregator) — vetted merchant coupon feeds; accelerates coupon ingestion (paid).
+
+Marketplaces & Large Programs (apply directly)
+
+Amazon Associates (PA‑API) — product data + images for generator; strict compliance; not coupon‑centric but critical for discovery.
+
+eBay Partner Network — broad catalog; deals.
+
+Walmart Affiliate Program — mass‑market retail coverage.
+
+Target Partners — big box; seasonal traffic.
+
+Best Buy Affiliate Program — electronics high intent.
+
+Travel (optional early, high AOV)
+
+Booking.com
+
+Expedia Group Brands (Expedia/Hotels.com/VRBO) — program availability varies by brand/region.
+
+Trip.com / Agoda — APAC strength.
+
+Pro tip: Maintain direct relationships with top 20 earning merchants once data reveals winners; negotiate commission bumps and exclusive codes.
+
+Application Checklist (Do This Before/While Applying)
+
+Use domain email (e.g., ops@fairdealhub.online).
+
+Publish About, Privacy, Terms, Affiliate Disclosure, Contact pages.
+
+Prepare sample merchant pages and screenshots to show real content (reduces rejections).
+
+Define tracking params: subid=fdh_{page}_{offer}_{clickId}; keep consistent across networks.
+
+Add payment/tax profiles (W‑9/W‑8BEN) to avoid payout delays.
+
+For codes: enable “promo code attribution” where supported (Impact, CJ, Awin) to ensure last‑click credit on code usage.
+
+First 30 Programs to Target (by category)
+
+Apply inside the networks above; exact host network varies. Focus on breadth + high intent retail.
+
+General Retail / Dept. Stores
+
+Amazon Associates
+
+Walmart
+
+Target
+
+Best Buy
+
+eBay Partner Network
+
+Electronics & Gadgets
+
+Newegg
+
+B&H Photo Video
+
+Dell / Lenovo / HP (brand stores often on Impact/CJ)
+
+Fashion & Beauty
+
+Nike
+
+Adidas
+
+Sephora
+
+Ulta
+
+ASOS
+
+H&M
+
+Home & DIY
+
+The Home Depot
+
+Lowe’s
+
+Wayfair
+
+Bed Bath & Beyond (where active)
+
+Outdoor & Fitness (AvantLink often)
+
+REI Co‑op
+
+Backcountry
+
+Columbia / Patagonia (varies)
+
+Pets
+
+Chewy
+
+Petco
+
+Travel
+
+Booking.com
+
+Expedia Group brand (e.g., Hotels.com, Vrbo)
+
+Trip.com / Agoda
+
+SaaS / Tools (via PartnerStack or direct)
+
+Notion
+
+NordVPN / Surfshark
+
+Grammarly
+
+ClickUp
+
+Note: Merchant availability and networks change. Approvals depend on geography and site quality. Use Skimlinks/Sovrn for temporary coverage where direct approvals lag.
+
+Core User Experience
+
+Header (centered menu):
+
+Dropdown: All Categories
+
+Tabs: Top Products, Random Specials
+
+Search with autocomplete (products, merchants, categories).
+
+Pages: Home, Category listing, Merchant page ("{Brand} coupons"), Product/Offer detail (copy code, track click), About Us.
+
+Footer: Include About Us link and an external link to https://stellarcdynamics.com.
+
+Offer Cards: show discount %, verified badge, time since verification, merchant logo, CTA.
+
+SEO: SSR pages with schema.org Product, Offer, Organization; clean URL slugs; fast CLS/LCP.
+
+Admin Panel (must‑have)
+
+Global settings: site name, domain, brand palette, email sender, legal links, robots rules.
+
+Affiliate: manage networks (CJ, Impact, ShareASale/Awin, Rakuten, Partnerize, FlexOffers, AvantLink, Admitad, Tradedoubler, Webgains, Skimlinks, Sovrn), program IDs, API credentials, deep‑link domains, default subids/UTM.
+
+Taxonomy: categories CRUD, synonyms/keyword map.
+
+Generator: schedule (default every 4 hours), source toggles, filters, quality thresholds, evergreen rules, lock manager.
+
+Catalog: products CRUD, images, categories, merchant mapping, owned product tag (bypass affiliate requirement), manual lock toggle.
+
+Coupons: add/import codes, verification status, expiry, last‑checked timestamps.
+
+Funnels: create landing pages, define steps (click → merchant → conversion), UTMs, A/B variants.
+
+Email/CRM: subscriber lists, segments, weekly newsletter composer (popular codes), drip sequences.
+
+Analytics: dashboards for traffic, clickouts, conversions, EPC, CR, revenue by day/merchant/category, top codes, retention, cohort.
+
+Integrations: Cloudinary, Resend, Sentry, feature flags.
+
+Roles & audit trail.
+
+Product Generator (automated every 4 hours)
+
+Goal: discover trending products/merchants, fetch product profiles & images, attach valid discounts, enforce affiliate eligibility, and categorize.
+
+Sources (toggleable):
+
+Google Trends: pull rising queries per category.
+
+Amazon: use the official Product Advertising API to fetch Best Sellers / top‑rated items.
+
+(Optional) Affiliate network deal feeds (CJ, Impact, Awin vouchers, FlexOffers, Admitad, Skimlinks/Sovrn link intelligence).
+
+Algorithm:
+
+Collect candidate keywords (Google Trends) → normalize → map via keyword→category synonyms.
+
+For each keyword/category, query Amazon PA‑API for top sellers with rating ≥ threshold, review count ≥ threshold, and price within configured range.
+
+Filter to merchants with active affiliate programs signed up by our site (must pass hasAffiliate=true) unless ownedBySite=true.
+
+Fetch product profile: title, description, price, images, merchant, ASIN/SKU, rating, URL; download/store images to Cloudinary.
+
+Discount code acquisition: from network voucher feeds or merchant APIs; attach code(s) with metadata (amount/percent, min spend, expiry).
+
+Verification:
+
+Preferred: call merchant voucher API.
+
+Fallback: headless check against public coupon‑verify endpoint if available; otherwise mark as unverified and rely on user reports + click/conversion signals.
+
+Write verified=true/false, lastCheckedAt, verificationMethod.
+
+Categorize using taxonomy map; if multiple, assign primary+secondary.
+
+Persist to DB; avoid duplicates by merchantId + sku/asin unique index.
+
+Evergreen logic: if a product has 30‑/90‑day performance above thresholds (CTR, CR, revenue percentile), auto‑apply evergreen lock to prevent replacement/removal by later generator runs.
+
+Respect manual locks set by admins.
+
+Manual Product Entry
+
+Admin can add a product manually; must choose merchant and category.
+
+Field: ownedBySite=true tag to indicate products/sites owned by us (no affiliate link required).
+
+If ownedBySite=true, allow custom destination URL and bypass affiliate checks.
+
+Built‑in Analytics
+
+Track: page views, searches, clickouts (with subid), conversions (ingested from networks), revenue, EPC, CR.
+
+Charts: time series (daily/weekly), top merchants/categories/products, cohort of subscribers, generator yield.
+
+Export CSV, filter by date range, UTM, funnel, category.
+
+Email Strategy
+
+Weekly newsletter: auto‑compile top verified codes by clicks/conversions; editor can curate.
+
+Follow‑ups: welcome series (3 emails), re‑engagement at 14/30/60 days, “price drop” alerts for locked favorites.
+
+Audience capture: sticky newsletter bar, exit intent modal, coupon reveal gating (soft).
+
+Sales Funnel (Admin‑configurable)
+
+Define funnels with steps: Landing → Category/Merchant → Offer → Clickout → Conversion.
+
+A/B test hero copy, CTA color, card layout. Measure CTR, CVR, EPC per variant.
+
+Data Model
+
+Implement one of the following depending on DB_PROVIDER.
+
+If Postgres (Neon + Prisma)
+
+Tables (snake_case); include indexes as noted.
+
+merchants (id pk, name, domain, logo_url, affiliate_network, program_id, has_affiliate bool, created_at)
+
+categories (id pk, slug unique, name, parent_id fk nullable)
+
+products (id pk, merchant_id fk, sku_or_asin, title, description, price_cents, currency, rating, review_count, image_main, owned_by_site bool default false, is_locked bool default false, evergreen_locked bool default false, created_at, updated_at) — unique (merchant_id, sku_or_asin)
+
+product_images (id pk, product_id fk, url, alt)
+
+product_categories (product_id fk, category_id fk, primary bool) — composite pk (product_id, category_id)
+
+coupons (id pk, product_id fk nullable, merchant_id fk, code, discount_type enum(percent, amount, free_ship, bogo), value, min_spend_cents, starts_at, expires_at, verified bool, verification_method, last_checked_at)
+
+clickouts (id pk, product_id fk, merchant_id fk, coupon_id fk nullable, user_id fk nullable, utm_source, utm_campaign, subid, occurred_at) — index (occurred_at), (merchant_id, occurred_at)
+
+conversions (id pk, network, program_id, merchant_id fk nullable, product_id fk nullable, order_id, subid, revenue_cents, commission_cents, occurred_at, currency) — unique (network, order_id)
+
+generator_runs (id pk, ran_at, new_products int, updated_products int, source_summary jsonb) — index (ran_at)
+
+newsletters (id pk, subject, html_url, sent_at nullable)
+
+subscribers (id pk, email unique, status enum(active, unsubscribed, bounced), created_at)
+
+funnels (id pk, name, description)
+
+funnel_steps (id pk, funnel_id fk, name, step_order int)
+
+feature_flags (key pk, enabled bool, json jsonb)
+
+audit_logs (id pk, actor_id fk, action, target, before jsonb, after jsonb, created_at)
+
+If MongoDB (Atlas + Mongoose)
+
+Collections: merchants, categories, products, coupons, clickouts, conversions, generator_runs, newsletters, subscribers, funnels, feature_flags, audit_logs with analogous fields. Create compound indexes where marked above.
+
+API Surface
+
+Public:
+
+GET /api/categories
+
+GET /api/products?category=...&sort=top|latest|random
+
+GET /api/merchants/:slug
+
+POST /api/clickout (body: productId, couponId?, utm/subid) → returns tracked affiliate URL
+
+Admin:
+
+POST /api/admin/generator/run
+
+CRUD endpoints for merchants, categories, products, coupons
+
+POST /api/admin/newsletters/send
+
+POST /api/admin/funnels
+
+Generator Scheduling & Rules
+
+Run every 4 hours (0 */4 * * *).
+
+Respect is_locked and evergreen_locked flags (never delete/replace such products).
+
+De‑dupe by SKU/ASIN and merchant.
+
+Auto‑expire coupons after expires_at or mark stale if unverified for > N days.
+
+Coupon Verification Detail
+
+Store verification_method: merchant_api | network_feed | headless_check | user_report | unknown.
+
+Re‑verify on import and then at least every 48 hours for active top products.
+
+Display Verified X hours ago badge in UI when verified=true.
+
+Frontend Components (deliver in code)
+
+Navbar with centered category dropdown + Top Products and Random Specials tabs.
+
+Home sections: Trending Now, Freshly Verified, Evergreen Favorites.
+
+Offer card: discount chip, code reveal + copy, verification badge, timer to expiry, merchant logo, CTA.
+
+Top Products tab: sortable table/grid by clicks, CR, revenue.
+
+Random Specials tab: randomly sampled verified codes/products within last 7 days.
+
+About Us page; footer with link to stellarcdynamics.com.
+
+Admin Dashboards (deliver in code)
+
+KPI tiles: revenue, commissions, CR, EPC, clickouts (selectable date range).
+
+Charts: daily revenue, top merchants, top categories, best coupons, generator yield.
+
+Product table with bulk operations: lock/unlock, mark owned, verify now.
+
+Funnel analytics: variant CTR/CVR/EPC.
+
+Migrations / Setup
+
+On first boot, if DB empty: auto‑create schema (Prisma migrate or Mongoose init), seed categories, create admin user, enable scheduled function.
+
+Environment variables scaffold for DB, affiliate APIs, Cloudinary, Resend.
+
+Acceptance Criteria (MVP)
+
+Users can browse categories, merchants, products; copy codes; click through with tracked links.
+
+Admin can connect at least one affiliate network, run the generator, and see new products appear with images and categories.
+
+Coupons show verification status; unverified codes are visually distinct.
+
+Generator runs every 4 hours automatically and respects manual/evergreen locks.
+
+Email: weekly newsletter can be composed and sent; subscribers captured on site.
+
+Analytics dashboard shows clickouts, conversions, revenue charts.
+
+Owned products can be added manually and bypass affiliate requirement via tag.
+
+Notes & Constraints
+
+Only include products from merchants where has_affiliate=true for our account, unless ownedBySite=true.
+
+Avoid scraping against terms of service; prefer official APIs (Amazon PA‑API; affiliate voucher feeds). For Google Trends, use an approved API provider or server‑side proxy.
+
+Performance: CWV targets LCP < 2.5s, CLS < 0.1, TTI < 3s on 4G.
+
+Security & compliance: add cookie consent; honor DNT; provide unsubscribe in all emails.
+
+What to Output
+
+A working Next.js14 TypeScript codebase with the above features, including Prisma/Mongoose models, API routes, scheduled generator function, admin dashboard, and email templates.
+
+Seed scripts and .env.example; instructions for Netlify deploy.
+
+Example newsletter and sales funnel preset.
+
+Variables (fill for brand)
+
+BRAND_NAME: FairDealHub
+
+DOMAIN: fairdealhub.online
+
+PRIMARY_NEON: #38F8B3
+
+SECONDARY_NEON: #7C4DFF
+
+ACCENT_NEON: #FF5AF1
+
+DB_PROVIDER: neon | mongodb
+
