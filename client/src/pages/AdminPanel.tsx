@@ -86,7 +86,13 @@ export default function AdminPanel() {
           </div>
         );
       case 'coupons':
-        return <CouponManagement />;
+        return (
+          <div className="p-8">
+            <CouponManagement />
+          </div>
+        );
+      default:
+        return (
           <div className="p-8">
             <h2 className="text-3xl font-space font-bold mb-4">Coupon Management</h2>
             <div className="glassmorphism-card rounded-xl p-8 text-center">
