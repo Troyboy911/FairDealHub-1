@@ -147,6 +147,7 @@ export default function AdminPanel() {
             <h3 className="font-semibold mb-3 text-sm text-gray-300">Quick Actions</h3>
             <div className="space-y-2">
               <button 
+                onClick={() => setActiveTab('ai-generator')}
                 className="w-full text-left text-sm text-gray-400 hover:text-neon-mint transition-smooth"
                 data-testid="quick-run-generator"
               >
@@ -154,6 +155,7 @@ export default function AdminPanel() {
                 Run AI Generator
               </button>
               <button 
+                onClick={() => setActiveTab('email-funnels')}
                 className="w-full text-left text-sm text-gray-400 hover:text-neon-purple transition-smooth"
                 data-testid="quick-send-email"
               >
@@ -161,6 +163,7 @@ export default function AdminPanel() {
                 Send Test Email
               </button>
               <button 
+                onClick={() => setActiveTab('analytics')}
                 className="w-full text-left text-sm text-gray-400 hover:text-neon-pink transition-smooth"
                 data-testid="quick-export-data"
               >

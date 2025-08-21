@@ -16,7 +16,7 @@ export default function DealCard({ product, className = "" }: DealCardProps) {
 
   const trackClickoutMutation = useMutation({
     mutationFn: async (data: any) => {
-      return await apiRequest("POST", "/api/track/clickout", data);
+      return await apiRequest("/api/track/clickout", "POST", data);
     },
     onSuccess: () => {
       // Tracking successful

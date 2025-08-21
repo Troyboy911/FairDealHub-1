@@ -44,7 +44,7 @@ export default function NewsletterSignup() {
 
   const subscribeUserMutation = useMutation({
     mutationFn: async (data: SignupData) => {
-      return await apiRequest("POST", "/api/subscribe", {
+      return await apiRequest("/api/subscribe", "POST", {
         email: data.email,
         status: "active",
         preferences: data.preferences,

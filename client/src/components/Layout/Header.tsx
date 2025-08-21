@@ -67,7 +67,16 @@ export default function Header() {
                 data-testid="input-search"
               />
               <i className="fas fa-search absolute left-4 top-4 text-gray-400"></i>
-              <button className="absolute right-2 top-2 p-2 bg-gradient-to-r from-neon-mint to-neon-purple text-dark-navy rounded-lg hover:scale-105 transition-smooth">
+              <button 
+                onClick={() => {
+                  // AI-powered search functionality
+                  if (searchQuery.trim()) {
+                    setShowSearchResults(true);
+                  }
+                }}
+                className="absolute right-2 top-2 p-2 bg-gradient-to-r from-neon-mint to-neon-purple text-dark-navy rounded-lg hover:scale-105 transition-smooth"
+                data-testid="button-ai-search"
+              >
                 <i className="fas fa-sparkles text-sm"></i>
               </button>
             </div>
@@ -80,14 +89,28 @@ export default function Header() {
                     <i className="fas fa-robot mr-1"></i> AI Suggestions
                   </div>
                   <div className="space-y-2">
-                    <div className="flex items-center space-x-3 p-2 hover:bg-white/5 rounded-lg cursor-pointer">
+                    <button 
+                      onClick={() => {
+                        setSearchQuery("MacBook Pro deals");
+                        setShowSearchResults(false);
+                      }}
+                      className="w-full flex items-center space-x-3 p-2 hover:bg-white/5 rounded-lg cursor-pointer text-left"
+                      data-testid="search-suggestion-macbook"
+                    >
                       <i className="fas fa-laptop text-neon-purple"></i>
                       <span className="text-sm">MacBook Pro deals - Save up to $300</span>
-                    </div>
-                    <div className="flex items-center space-x-3 p-2 hover:bg-white/5 rounded-lg cursor-pointer">
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setSearchQuery("Sony WH-1000XM5");
+                        setShowSearchResults(false);
+                      }}
+                      className="w-full flex items-center space-x-3 p-2 hover:bg-white/5 rounded-lg cursor-pointer text-left"
+                      data-testid="search-suggestion-headphones"
+                    >
                       <i className="fas fa-headphones text-neon-mint"></i>
                       <span className="text-sm">Sony WH-1000XM5 - 25% off</span>
-                    </div>
+                    </button>
                   </div>
                 </div>
               </div>

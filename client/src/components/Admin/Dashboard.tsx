@@ -25,14 +25,19 @@ interface DashboardMetrics {
     revenue: number;
     share: number;
   }>;
+  topCategories: Array<{
+    name: string;
+    clicks: number;
+    revenue: number;
+  }>;
 }
 
 export default function Dashboard() {
   const { toast } = useToast();
 
-  const { data: metrics, isLoading } = useQuery<DashboardMetrics>({
+  const { data: metrics, isLoading, error } = useQuery<DashboardMetrics>({
     queryKey: ["/api/admin/analytics/dashboard"],
-    onError: (error: Error) => {
+    retry: (failureCount, error: any) => {
       if (isUnauthorizedError(error)) {
         toast({
           title: "Unauthorized",
@@ -42,7 +47,9 @@ export default function Dashboard() {
         setTimeout(() => {
           window.location.href = "/api/login";
         }, 2000);
+        return false;
       }
+      return failureCount < 3;
     }
   });
 

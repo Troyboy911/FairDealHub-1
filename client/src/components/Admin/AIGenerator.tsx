@@ -72,7 +72,7 @@ export default function AIGenerator() {
   const { data: status, isLoading: statusLoading } = useQuery<GeneratorStatus>({
     queryKey: ["/api/admin/ai-generator/status"],
     refetchInterval: 5000, // Refresh every 5 seconds
-    onError: (error: Error) => {
+    retry: (failureCount, error: any) => {
       if (isUnauthorizedError(error)) {
         toast({
           title: "Unauthorized",
@@ -82,13 +82,15 @@ export default function AIGenerator() {
         setTimeout(() => {
           window.location.href = "/api/login";
         }, 2000);
+        return false;
       }
+      return failureCount < 3;
     }
   });
 
   const { data: logs = [], isLoading: logsLoading } = useQuery<GeneratorLog[]>({
     queryKey: ["/api/admin/ai-generator/logs"],
-    onError: (error: Error) => {
+    retry: (failureCount, error: any) => {
       if (isUnauthorizedError(error)) {
         toast({
           title: "Unauthorized",
@@ -98,7 +100,9 @@ export default function AIGenerator() {
         setTimeout(() => {
           window.location.href = "/api/login";
         }, 2000);
+        return false;
       }
+      return failureCount < 3;
     }
   });
 
@@ -120,7 +124,7 @@ export default function AIGenerator() {
 
   const runGeneratorMutation = useMutation({
     mutationFn: async (config?: any) => {
-      return await apiRequest("POST", "/api/admin/ai-generator/run", { config });
+      return await apiRequest("/api/admin/ai-generator/run", "POST", { config });
     },
     onSuccess: (data: GenerationResult) => {
       toast({
