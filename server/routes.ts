@@ -119,6 +119,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Get public analytics stats
+  app.get('/api/analytics/stats', async (req, res) => {
+    try {
+      const stats = await analyticsService.getPublicStats();
+      res.json(stats);
+    } catch (error) {
+      console.error('Error fetching analytics stats:', error);
+      res.status(500).json({ message: 'Failed to fetch stats' });
+    }
+  });
+
   // Track clickout
   app.post('/api/track/clickout', async (req, res) => {
     try {

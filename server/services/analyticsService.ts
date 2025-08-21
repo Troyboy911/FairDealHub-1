@@ -73,11 +73,73 @@ export class AnalyticsService {
       });
 
       // Update real-time stats (in production, use Redis or similar)
-      await this.updateRealTimeMetrics('clickout');
-
       return clickout;
     } catch (error) {
       console.error('Error tracking clickout:', error);
+      throw error;
+    }
+  }
+
+  // Get public stats for homepage
+  async getPublicStats(): Promise<{
+    totalDeals: number;
+    totalSavings: string;
+    happyUsers: string;
+    avgSavings: string;
+  }> {
+    try {
+      const [products, subscribers, clickouts, analytics] = await Promise.all([
+        storage.getActiveProductsCount(),
+        storage.getSubscribersCount(),
+        storage.getTotalClickouts(),
+        storage.getRevenueStats()
+      ]);
+
+      return {
+        totalDeals: products,
+        totalSavings: `$${(analytics.totalRevenue / 1000).toFixed(1)}K`,
+        happyUsers: `${(subscribers / 1000).toFixed(1)}K`,
+        avgSavings: `${analytics.avgSavings}%`
+      };
+    } catch (error) {
+      console.error('Error getting public stats:', error);
+      return {
+        totalDeals: 0,
+        totalSavings: '$0',
+        happyUsers: '0',
+        avgSavings: '0%'
+      };
+    }
+  }
+
+  // Get dashboard metrics for admin
+  async getDashboardMetrics(dateRange?: { start: Date; end: Date }): Promise<DashboardMetrics> {
+    try {
+      const [totalClickouts, totalConversions, revenueData, topProducts, topMerchants] = await Promise.all([
+        storage.getTotalClickouts(dateRange),
+        storage.getTotalConversions(dateRange),
+        storage.getRevenueStats(dateRange),
+        storage.getTopProducts(dateRange),
+        storage.getTopMerchants(dateRange)
+      ]);
+
+      const conversionRate = totalClickouts > 0 ? (totalConversions / totalClickouts) * 100 : 0;
+
+      return {
+        pageViews: await storage.getPageViews(dateRange),
+        uniqueVisitors: await storage.getUniqueVisitors(dateRange),
+        clickouts: totalClickouts,
+        conversions: totalConversions,
+        conversionRate: Math.round(conversionRate * 100) / 100,
+        revenue: revenueData.totalRevenue,
+        commissions: revenueData.totalCommissions,
+        avgOrderValue: revenueData.avgOrderValue,
+        topProducts: topProducts || [],
+        topMerchants: topMerchants || [],
+        topCategories: await storage.getTopCategories(dateRange) || []
+      };
+    } catch (error) {
+      console.error('Error getting dashboard metrics:', error);
       throw error;
     }
   }

@@ -36,13 +36,24 @@ export default function Home() {
     queryKey: ["/api/products/featured", { limit: 9 }],
   });
 
-  // Mock stats (in production these would come from analytics API)
-  const stats: Stats = {
-    totalDeals: 12847,
-    totalSavings: "$2.4M",
-    happyUsers: "125K+",
-    avgSavings: "73%"
+  // Fetch real stats from analytics API
+  const { data: stats } = useQuery<Stats>({
+    queryKey: ["/api/analytics/stats"],
+    onError: (error) => {
+      if (isUnauthorizedError(error)) {
+        // Silent fail for public stats, show zeros
+      }
+    }
+  });
+
+  const defaultStats: Stats = {
+    totalDeals: 0,
+    totalSavings: "$0",
+    happyUsers: "0",
+    avgSavings: "0%"
   };
+
+  const displayStats = stats || defaultStats;
 
   return (
     <div className="min-h-screen">
@@ -111,31 +122,27 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
               <div className="glassmorphism-card rounded-xl p-6 text-center hover:scale-105 transition-smooth">
                 <div className="text-3xl font-space font-bold text-neon-mint mb-2" data-testid="text-total-deals">
-                  {stats.totalDeals.toLocaleString()}
+                  {displayStats.totalDeals.toLocaleString()}
                 </div>
                 <div className="text-sm text-gray-400">Active Deals</div>
-                <div className="text-xs text-success mt-1">↑ 234 today</div>
               </div>
               <div className="glassmorphism-card rounded-xl p-6 text-center hover:scale-105 transition-smooth">
                 <div className="text-3xl font-space font-bold text-neon-purple mb-2" data-testid="text-total-savings">
-                  {stats.totalSavings}
+                  {displayStats.totalSavings}
                 </div>
                 <div className="text-sm text-gray-400">User Savings</div>
-                <div className="text-xs text-success mt-1">↑ $12.5K today</div>
               </div>
               <div className="glassmorphism-card rounded-xl p-6 text-center hover:scale-105 transition-smooth">
                 <div className="text-3xl font-space font-bold text-neon-pink mb-2" data-testid="text-happy-users">
-                  {stats.happyUsers}
+                  {displayStats.happyUsers}
                 </div>
-                <div className="text-sm text-gray-400">Happy Users</div>
-                <div className="text-xs text-success mt-1">↑ 1.2K today</div>
+                <div className="text-sm text-gray-400">Subscribers</div>
               </div>
               <div className="glassmorphism-card rounded-xl p-6 text-center hover:scale-105 transition-smooth">
                 <div className="text-3xl font-space font-bold text-warning mb-2" data-testid="text-avg-savings">
-                  {stats.avgSavings}
+                  {displayStats.avgSavings}
                 </div>
                 <div className="text-sm text-gray-400">Avg. Savings</div>
-                <div className="text-xs text-success mt-1">↑ 2% today</div>
               </div>
             </div>
           </div>

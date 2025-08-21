@@ -138,16 +138,6 @@ export default function AdminPanel() {
                 <span className={activeTab === item.id ? 'text-white' : 'text-gray-300'}>
                   {item.label}
                 </span>
-                {item.id === 'affiliates' && (
-                  <span className="ml-auto px-2 py-1 bg-success/20 text-success rounded-full text-xs">
-                    12 Active
-                  </span>
-                )}
-                {item.id === 'ai-generator' && (
-                  <span className="ml-auto px-2 py-1 bg-warning/20 text-warning rounded-full text-xs">
-                    Running
-                  </span>
-                )}
               </button>
             ))}
           </nav>
