@@ -69,9 +69,8 @@ export default function Home() {
                 <img 
                   src="/fairdealhub-logo.jpg" 
                   alt="FairDealHub - AI-Powered Deals" 
-                  className="w-full h-full object-cover rounded-2xl shadow-2xl animate-float"
+                  className="w-full h-full object-contain rounded-2xl shadow-2xl animate-float bg-transparent"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-electric-blue/20 to-transparent rounded-2xl"></div>
               </div>
             </div>
             <div className="inline-flex items-center space-x-2 glassmorphism rounded-full px-6 py-2 mb-8">
