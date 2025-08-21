@@ -68,6 +68,8 @@ export default {
         "neon-pink": "var(--neon-pink)",
         "electric-blue": "var(--electric-blue)",
         "cyber-cyan": "var(--cyber-cyan)",
+        "deep-blue": "var(--deep-blue)",
+        "hologram-purple": "var(--hologram-purple)",
         "success": "var(--success)",
         "warning": "var(--warning)",
       },

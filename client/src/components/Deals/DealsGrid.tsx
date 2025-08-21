@@ -1,21 +1,5 @@
 import DealCard from "./DealCard";
-
-interface Product {
-  id: string;
-  name: string;
-  description?: string;
-  merchantId: string;
-  originalPrice?: string;
-  salePrice?: string;
-  discountPercentage?: number;
-  rating?: string;
-  totalReviews?: number;
-  imageUrl?: string;
-  productUrl?: string;
-  affiliateUrl?: string;
-  sku?: string;
-  metadata?: any;
-}
+import { Product } from "@shared/schema";
 
 interface DealsGridProps {
   products: Product[];

@@ -51,6 +51,11 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
+          <img 
+            src="/fairdealhub-hero-bg.jpg" 
+            alt="FairDealHub Hero Background" 
+            className="absolute inset-0 w-full h-full object-cover opacity-20 blur-sm"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-electric-blue/10 via-transparent to-cyber-cyan/10"></div>
           <div className="absolute top-20 left-20 w-32 h-32 bg-electric-blue/20 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-20 right-20 w-40 h-40 bg-cyber-cyan/20 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
@@ -62,7 +67,7 @@ export default function Home() {
             <div className="flex justify-center mb-8">
               <div className="relative w-80 h-64 mx-auto">
                 <img 
-                  src="/fairdealhub-logo-screen.jpg" 
+                  src="/fairdealhub-logo.jpg" 
                   alt="FairDealHub - AI-Powered Deals" 
                   className="w-full h-full object-cover rounded-2xl shadow-2xl animate-float"
                 />
@@ -178,14 +183,14 @@ export default function Home() {
             </div>
             <div className="w-64 h-48 relative">
               <img 
-                src="/fairdealhub-logo-hologram.jpg" 
+                src="/fairdealhub-logo.jpg" 
                 alt="FairDealHub AI Technology" 
                 className="w-full h-full object-cover rounded-xl shadow-lg animate-pulse-glow"
               />
             </div>
           </div>
 
-          <DealsGrid products={featuredProducts} />
+          <DealsGrid products={featuredProducts || []} />
         </div>
       </section>
 

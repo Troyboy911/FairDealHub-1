@@ -2,23 +2,7 @@ import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-
-interface Product {
-  id: string;
-  name: string;
-  description?: string;
-  merchantId: string;
-  originalPrice?: string;
-  salePrice?: string;
-  discountPercentage?: number;
-  rating?: string;
-  totalReviews?: number;
-  imageUrl?: string;
-  productUrl?: string;
-  affiliateUrl?: string;
-  sku?: string;
-  metadata?: any;
-}
+import { Product } from "@shared/schema";
 
 interface DealCardProps {
   product: Product;

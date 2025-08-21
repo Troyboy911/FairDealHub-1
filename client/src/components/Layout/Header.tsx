@@ -21,7 +21,7 @@ export default function Header() {
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 rounded-lg overflow-hidden bg-gradient-to-r from-electric-blue to-cyber-cyan p-1 animate-glow">
               <img 
-                src="/fairdealhub-logo-hero.jpg" 
+                src="/fairdealhub-logo.jpg" 
                 alt="FairDealHub Logo" 
                 className="w-full h-full object-cover rounded-md"
               />
