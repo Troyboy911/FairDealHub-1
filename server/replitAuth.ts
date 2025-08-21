@@ -84,8 +84,12 @@ export async function setupAuth(app: Express) {
     verified(null, user);
   };
 
-  for (const domain of process.env
-    .REPLIT_DOMAINS!.split(",")) {
+  // Get all domains including custom domains
+  const baseDomains = process.env.REPLIT_DOMAINS!.split(",");
+  const customDomains = ["fairdealhub.online"]; // Add your custom domain here
+  const allDomains = [...baseDomains, ...customDomains];
+
+  for (const domain of allDomains) {
     const strategy = new Strategy(
       {
         name: `replitauth:${domain}`,
