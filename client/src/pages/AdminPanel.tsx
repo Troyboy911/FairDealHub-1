@@ -76,43 +76,14 @@ export default function AdminPanel() {
         return <Analytics />;
       case 'products':
         return <ProductManagement />;
-          <div className="p-8">
-            <h2 className="text-3xl font-space font-bold mb-4">Product Management</h2>
-            <div className="glassmorphism-card rounded-xl p-8 text-center">
-              <i className="fas fa-box text-4xl text-neon-purple mb-4"></i>
-              <h3 className="text-xl font-semibold mb-2">Product Management</h3>
-              <p className="text-gray-400">Advanced product management interface coming soon...</p>
-            </div>
-          </div>
-        );
       case 'coupons':
         return (
           <div className="p-8">
             <CouponManagement />
           </div>
         );
-      default:
-        return (
-          <div className="p-8">
-            <h2 className="text-3xl font-space font-bold mb-4">Coupon Management</h2>
-            <div className="glassmorphism-card rounded-xl p-8 text-center">
-              <i className="fas fa-ticket-alt text-4xl text-warning mb-4"></i>
-              <h3 className="text-xl font-semibold mb-2">Coupon Verification</h3>
-              <p className="text-gray-400">Automated coupon verification system coming soon...</p>
-            </div>
-          </div>
-        );
       case 'users':
         return <UserProfiles />;
-          <div className="p-8">
-            <h2 className="text-3xl font-space font-bold mb-4">User Management</h2>
-            <div className="glassmorphism-card rounded-xl p-8 text-center">
-              <i className="fas fa-users text-4xl text-neon-mint mb-4"></i>
-              <h3 className="text-xl font-semibold mb-2">User Management</h3>
-              <p className="text-gray-400">User administration interface coming soon...</p>
-            </div>
-          </div>
-        );
       case 'settings':
         return (
           <div className="p-8">
