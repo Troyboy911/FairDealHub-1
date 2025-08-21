@@ -172,7 +172,7 @@ export default function Home() {
       </section>
 
       {/* Newsletter Section */}
-      {!isAuthenticated && <NewsletterSignup />}
+      <NewsletterSignup />
 
       <Footer />
     </div>
