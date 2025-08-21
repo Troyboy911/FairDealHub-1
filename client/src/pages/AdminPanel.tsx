@@ -7,6 +7,9 @@ import AffiliateNetworks from "@/components/Admin/AffiliateNetworks";
 import AIGenerator from "@/components/Admin/AIGenerator";
 import EmailFunnels from "@/components/Admin/EmailFunnels";
 import Analytics from "@/components/Admin/Analytics";
+import ProductManagement from "@/components/Admin/ProductManagement";
+import CouponManagement from "@/components/Admin/CouponManagement";
+import UserProfiles from "@/components/Admin/UserProfiles";
 import { useEffect } from "react";
 
 type AdminTab = 'dashboard' | 'affiliates' | 'ai-generator' | 'email-funnels' | 'products' | 'coupons' | 'users' | 'analytics' | 'settings';
@@ -72,7 +75,7 @@ export default function AdminPanel() {
       case 'analytics':
         return <Analytics />;
       case 'products':
-        return (
+        return <ProductManagement />;
           <div className="p-8">
             <h2 className="text-3xl font-space font-bold mb-4">Product Management</h2>
             <div className="glassmorphism-card rounded-xl p-8 text-center">
@@ -83,7 +86,7 @@ export default function AdminPanel() {
           </div>
         );
       case 'coupons':
-        return (
+        return <CouponManagement />;
           <div className="p-8">
             <h2 className="text-3xl font-space font-bold mb-4">Coupon Management</h2>
             <div className="glassmorphism-card rounded-xl p-8 text-center">
@@ -94,7 +97,7 @@ export default function AdminPanel() {
           </div>
         );
       case 'users':
-        return (
+        return <UserProfiles />;
           <div className="p-8">
             <h2 className="text-3xl font-space font-bold mb-4">User Management</h2>
             <div className="glassmorphism-card rounded-xl p-8 text-center">
