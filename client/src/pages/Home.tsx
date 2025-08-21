@@ -65,11 +65,11 @@ export default function Home() {
           <div className="text-center">
             {/* Hero Logo */}
             <div className="flex justify-center mb-8">
-              <div className="relative w-80 h-64 mx-auto">
+              <div className="relative w-full max-w-4xl h-72 mx-auto">
                 <img 
                   src="/fairdealhub-logo.jpg" 
                   alt="FairDealHub - AI-Powered Deals" 
-                  className="w-full h-full object-contain rounded-2xl shadow-2xl animate-float bg-transparent"
+                  className="w-full h-full object-contain rounded-2xl shadow-2xl animate-float bg-transparent opacity-60"
                 />
               </div>
             </div>
