@@ -47,7 +47,6 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Header />
-      
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
@@ -56,7 +55,7 @@ export default function Home() {
             alt="FairDealHub Hero Background" 
             className="absolute inset-0 w-full h-full object-cover opacity-20 blur-sm"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-electric-blue/10 via-transparent to-cyber-cyan/10"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-electric-blue/10 via-transparent to-cyber-cyan/10 mt-[35px] mb-[35px] ml-[-2px] mr-[-2px] pl-[3px] pr-[3px] pt-[-10px] pb-[-10px]"></div>
           <div className="absolute top-20 left-20 w-32 h-32 bg-electric-blue/20 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-20 right-20 w-40 h-40 bg-cyber-cyan/20 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
         </div>
@@ -142,7 +141,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Categories Section */}
       <section className="py-16" data-testid="section-categories">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -168,7 +166,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Featured Deals Section */}
       <section id="deals-section" className="py-20 bg-gradient-to-r from-transparent via-neon-mint/5 to-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -192,10 +189,8 @@ export default function Home() {
           <DealsGrid products={featuredProducts || []} />
         </div>
       </section>
-
       {/* Newsletter Section */}
       <NewsletterSignup />
-
       <Footer />
     </div>
   );
