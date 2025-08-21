@@ -61,11 +61,13 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
-        // Custom FairDealHub Colors
+        // Custom FairDealHub Colors - Updated to match logo
         "dark-navy": "var(--dark-navy)",
         "neon-mint": "var(--neon-mint)",
         "neon-purple": "var(--neon-purple)",
         "neon-pink": "var(--neon-pink)",
+        "electric-blue": "var(--electric-blue)",
+        "cyber-cyan": "var(--cyber-cyan)",
         "success": "var(--success)",
         "warning": "var(--warning)",
       },

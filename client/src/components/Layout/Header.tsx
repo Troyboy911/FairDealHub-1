@@ -19,12 +19,16 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-neon-mint to-neon-purple flex items-center justify-center animate-glow">
-              <i className="fas fa-bolt text-dark-navy text-lg"></i>
+            <div className="w-12 h-12 rounded-lg overflow-hidden bg-gradient-to-r from-electric-blue to-cyber-cyan p-1 animate-glow">
+              <img 
+                src="/fairdealhub-logo-hero.jpg" 
+                alt="FairDealHub Logo" 
+                className="w-full h-full object-cover rounded-md"
+              />
             </div>
             <h1 className="text-xl font-space font-bold">
-              Fair<span className="text-neon-mint">Deal</span>Hub
-              <span className="text-xs text-neon-purple ml-1">2.0</span>
+              Fair<span className="text-cyber-cyan">Deal</span>Hub
+              <span className="text-xs text-electric-blue ml-1">2.0</span>
             </h1>
           </div>
 
